@@ -17,7 +17,7 @@ import flightTicketSalesProject.entity.Plane;
 import flightTicketSalesProject.repository.PlaneRepository;
 
 @ExtendWith(MockitoExtension.class)
-public class PlaneCoorodinatorUnitTest {
+public class PlaneCoordinatorUnitTest {
 
 	@InjectMocks
 	PlaneService planeService;
