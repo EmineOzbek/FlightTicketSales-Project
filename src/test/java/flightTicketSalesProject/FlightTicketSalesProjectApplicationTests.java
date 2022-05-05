@@ -1,4 +1,4 @@
-package kodluyoruz.flightTicketSalesProject;
+package flightTicketSalesProject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
