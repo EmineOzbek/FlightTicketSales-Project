@@ -2,7 +2,12 @@ package flightTicketSalesProject.entity;
 
 import javax.persistence.Entity;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 @Entity
+@Data
+@EqualsAndHashCode(callSuper=false)
 public class Pegasus extends Plane {
 
 	@Override
