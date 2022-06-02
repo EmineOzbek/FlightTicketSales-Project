@@ -1,8 +1,12 @@
 package flightTicketSalesProject.dto.requestDtos;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PlaneSaveRequestDto {
 
 	private int id;
