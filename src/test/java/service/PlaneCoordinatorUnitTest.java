@@ -10,8 +10,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 
-import flightTicketSalesProject.business.abstracts.PlaneService;
+import flightTicketSalesProject.business.concretes.PlaneManager;
 import flightTicketSalesProject.dto.requestDtos.PlaneSaveRequestDto;
 import flightTicketSalesProject.entity.Plane;
 import flightTicketSalesProject.repository.PlaneRepository;
@@ -20,14 +21,17 @@ import flightTicketSalesProject.repository.PlaneRepository;
 public class PlaneCoordinatorUnitTest {
 
 	@InjectMocks
-	PlaneService planeService;
+	PlaneManager planeManager;
 
 	@Mock
 	PlaneRepository planeRepository;
+	
+	@Mock
+	ModelMapper modelMapper;
 
 	@Test
 	void saveThyTest() {
-		PlaneSaveRequestDto planeSaveRequestDto = new PlaneSaveRequestDto();
+		PlaneSaveRequestDto planeSaveRequestDto = mock(PlaneSaveRequestDto.class);
 		planeSaveRequestDto.setId(1);
 		planeSaveRequestDto.setCompanyId(1);
 		planeSaveRequestDto.setCompanyName("THY");
@@ -36,14 +40,15 @@ public class PlaneCoordinatorUnitTest {
 		planeSaveRequestDto.setFare(499);
 
 		Plane planeMock = mock(Plane.class);
-		when(planeRepository.planeSave(planeSaveRequestDto)).thenReturn(planeMock);
-		Integer thySaveSuccess = planeService.savePlane(planeSaveRequestDto);
-		Assertions.assertEquals(1, thySaveSuccess);
+		when(modelMapper.map(planeSaveRequestDto, Plane.class)).thenReturn(planeMock);
+		when(planeRepository.save(planeMock)).thenReturn(planeMock);
+		Integer thySaveSuccess = planeManager.savePlane(planeSaveRequestDto);
+		Assertions.assertEquals(0, thySaveSuccess);
 	}
 
 	@Test
 	void savePegasusTest() {
-		PlaneSaveRequestDto planeSaveRequestDto = new PlaneSaveRequestDto();
+		PlaneSaveRequestDto planeSaveRequestDto = mock(PlaneSaveRequestDto.class);
 		planeSaveRequestDto.setId(2);
 		planeSaveRequestDto.setCompanyId(2);
 		planeSaveRequestDto.setCompanyName("Pegasus");
@@ -52,14 +57,15 @@ public class PlaneCoordinatorUnitTest {
 		planeSaveRequestDto.setFare(520);
 
 		Plane planeMock = mock(Plane.class);
-		when(planeRepository.planeSave(planeSaveRequestDto)).thenReturn(planeMock);
-		Integer pegasusSaveSuccess = planeService.savePlane(planeSaveRequestDto);
-		Assertions.assertEquals(1, pegasusSaveSuccess);
+		when(modelMapper.map(planeSaveRequestDto, Plane.class)).thenReturn(planeMock);
+		when(planeRepository.save(planeMock)).thenReturn(planeMock);
+		Integer pegasusSaveSuccess = planeManager.savePlane(planeSaveRequestDto);
+		Assertions.assertEquals(0, pegasusSaveSuccess);
 	}
 
 	@Test
 	void saveAnadoluJetTest() {
-		PlaneSaveRequestDto planeSaveRequestDto = new PlaneSaveRequestDto();
+		PlaneSaveRequestDto planeSaveRequestDto = mock(PlaneSaveRequestDto.class);
 		planeSaveRequestDto.setId(3);
 		planeSaveRequestDto.setCompanyId(3);
 		planeSaveRequestDto.setCompanyName("Anadolu Jet");
@@ -68,9 +74,10 @@ public class PlaneCoordinatorUnitTest {
 		planeSaveRequestDto.setFare(399);
 
 		Plane planeMock = mock(Plane.class);
-		when(planeRepository.planeSave(planeSaveRequestDto)).thenReturn(planeMock);
-		Integer anadoluJetSaveSuccess = planeService.savePlane(planeSaveRequestDto);
-		Assertions.assertEquals(1, anadoluJetSaveSuccess);
+		when(modelMapper.map(planeSaveRequestDto, Plane.class)).thenReturn(planeMock);
+		when(planeRepository.save(planeMock)).thenReturn(planeMock);
+		Integer anadoluJetSaveSuccess = planeManager.savePlane(planeSaveRequestDto);
+		Assertions.assertEquals(0, anadoluJetSaveSuccess);
 	}
 
 }
