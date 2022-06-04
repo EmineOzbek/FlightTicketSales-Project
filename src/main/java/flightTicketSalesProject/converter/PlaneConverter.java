@@ -24,12 +24,14 @@ public class PlaneConverter {
 
 		Plane plane = new Plane();
 
+//		plane.setId(planeSaveRequestDto.getId());
+		
 		plane.setId(idRequestDto);
 		plane.setCompanyName(companyNameRequestDto);
 		plane.setPassengerCount(passengerCountRequestDto);
 		plane.setCapacity(capacityRequestDto);
 		plane.setFare(fareRequestDto);
-
+		
 		plane = planeRepository.save(plane);
 		return plane;
 
