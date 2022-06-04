@@ -43,7 +43,9 @@ public class PassengerManager implements PassengerService {
 
 	@Autowired
 	private PassengerConverter passengerConverter;
+	@Autowired
 	private PassengerRepository passengerRepository;
+	@Autowired
 	private ModelMapper modelMapper;
 
 	@Override

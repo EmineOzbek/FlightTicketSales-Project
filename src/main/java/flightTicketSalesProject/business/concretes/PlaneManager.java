@@ -19,7 +19,9 @@ public class PlaneManager implements PlaneService {
 
 	@Autowired
 	PlaneConverter planeConverter;
+	@Autowired
 	PlaneRepository planeRepository;
+	@Autowired
 	ModelMapper modelMapper;
 
 //	***Buradaki islemi ModelMapper kullanarak asagida yaptim.***
