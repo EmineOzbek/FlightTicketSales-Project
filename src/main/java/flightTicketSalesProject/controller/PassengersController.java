@@ -21,8 +21,13 @@ import flightTicketSalesProject.dto.responseDtos.PassengerResponseDto;
 @RequestMapping("/passengers")
 public class PassengersController {
 
-	@Autowired
 	private PassengerService passengerService;
+	
+	@Autowired
+	public PassengersController(PassengerService passengerService) {
+		super();
+		this.passengerService = passengerService;
+	}
 
 	@PostMapping("/savePassenger")
 	public ResponseEntity<Integer> savePassenger(@RequestBody PassengerSaveRequestDto passengerSaveRequestDto) {

@@ -21,8 +21,13 @@ import flightTicketSalesProject.dto.responseDtos.PlaneResponseDto;
 @RequestMapping("/planes")
 public class PlanesController {
 
-	@Autowired
 	private PlaneService planeService;
+
+	@Autowired
+	public PlanesController(PlaneService planeService) {
+		super();
+		this.planeService = planeService;
+	}
 
 	@PostMapping("/savePlane")
 	public ResponseEntity<Integer> savePlane(@RequestBody PlaneSaveRequestDto planeSaveRequestDto) {
